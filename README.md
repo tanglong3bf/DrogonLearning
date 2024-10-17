@@ -6,7 +6,7 @@
 
 | 视频地址                                                                                    | 项目入口地址                                     |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| [C++ web 框架，静态网站的搭建](https://www.bilibili.com/video/BV1NZ4y1y7Qz)                 |                                                  |
+| [C++ web 框架，静态网站的搭建](https://www.bilibili.com/video/BV1NZ4y1y7Qz)                 | [StaticWebDemo](./StaticSite/README.md)          |
 | [创建一个控制器](https://www.bilibili.com/video/BV1u34y1Y7Qe)                               |                                                  |
 | [HttpSimpleController与运行时路径映射](https://www.bilibili.com/video/BV1mB4y1C7TK)         |                                                  |
 | [HttpController与json格式数据的响应](https://www.bilibili.com/video/BV1wU4y1U75k)           |                                                  |
