@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(StaticSiteDemo CXX)
+project(HttpSimpleControllerDemo CXX)
 
 include(CheckIncludeFileCXX)
 
