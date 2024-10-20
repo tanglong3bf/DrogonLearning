@@ -1,0 +1,30 @@
+/* This is a JSON format configuration file
+ */
+{
+    "listeners": [
+        {
+            //address: Ip address,0.0.0.0 by default
+            "address": "0.0.0.0",
+            //port: Port number
+            "port": 8000,
+            //https: If true, use https for security,false by default
+            "https": false
+        }
+    ],
+    "app": {
+        //simple_controllers_map: Used to configure mapping from path to simple controller
+        "simple_controllers_map": [
+            {
+                "path": "/aa",
+                "controller": "aa",
+                "http_methods": [
+                    "get",
+                    "post"
+                ],
+                // "filters": [
+                //     "FilterClassName"
+                // ]
+            }
+        ]
+	}
+}

@@ -8,7 +8,7 @@
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | [C++ web 框架，静态网站的搭建](https://www.bilibili.com/video/BV1NZ4y1y7Qz)                 | [StaticWebDemo](./StaticSite/README.md)                      |
 | [创建一个控制器](https://www.bilibili.com/video/BV1u34y1Y7Qe)                               | [HttpSimpleControllerDemo](./HttpSimpleController/README.md) |
-| [HttpSimpleController与运行时路径映射](https://www.bilibili.com/video/BV1mB4y1C7TK)         |                                                              |
+| [HttpSimpleController与运行时路径映射](https://www.bilibili.com/video/BV1mB4y1C7TK)         | [DynamicPathMappingDemo](./DynamicPathMapping/README.md)     |
 | [HttpController与json格式数据的响应](https://www.bilibili.com/video/BV1wU4y1U75k)           |                                                              |
 | [HttpController与自定义类型参数的接收](https://www.bilibili.com/video/BV1aA4y1R7ug)         |                                                              |
 | [当我尝试用C++做Web之接收前端传递过来的参数](https://www.bilibili.com/video/BV18V411M7Px)   |                                                              |
