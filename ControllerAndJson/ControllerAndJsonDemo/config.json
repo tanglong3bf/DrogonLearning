@@ -1,0 +1,14 @@
+/* This is a JSON format configuration file
+ */
+{
+    "listeners": [
+        {
+            //address: Ip address,0.0.0.0 by default
+            "address": "0.0.0.0",
+            //port: Port number
+            "port": 8000,
+            //https: If true, use https for security,false by default
+            "https": false
+        }
+    ]
+}
