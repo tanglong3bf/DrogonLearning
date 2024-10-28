@@ -37,3 +37,4 @@
 | [插件的定义和使用](https://www.bilibili.com/video/BV1XvbweZEy4)                             |                                                              |
 | [内置插件 1: AccessLogger & RealIpResolver](https://www.bilibili.com/video/BV15G1QYdEBH)    |                                                              |
 | [内置插件 2: PromExporter](https://www.bilibili.com/video/BV1FtyNYKEqZ)                     | [PromExporterDemo](./PromExporterDemo/README.md)             |
+| [内置插件 3: Hodor](https://www.bilibili.com/video/BV1Tz15YkECo)                            | [Hodor](./Hodor/Hodor.md)                                    |
