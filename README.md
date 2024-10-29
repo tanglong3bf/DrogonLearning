@@ -10,7 +10,7 @@
 | [创建一个控制器](https://www.bilibili.com/video/BV1u34y1Y7Qe)                               | [HttpSimpleControllerDemo](./HttpSimpleController/README.md) |
 | [HttpSimpleController与运行时路径映射](https://www.bilibili.com/video/BV1mB4y1C7TK)         | [DynamicPathMappingDemo](./DynamicPathMapping/README.md)     |
 | [HttpController与json格式数据的响应](https://www.bilibili.com/video/BV1wU4y1U75k)           | [ControllerAndJsonDemo](./ControllerAndJson/README.md)       |
-| [HttpController与自定义类型参数的接收](https://www.bilibili.com/video/BV1aA4y1R7ug)         |                                                              |
+| [HttpController与自定义类型参数的接收](https://www.bilibili.com/video/BV1aA4y1R7ug)         | [FromRequestDemo](./FromRequest/README.md)                   |
 | [当我尝试用C++做Web之接收前端传递过来的参数](https://www.bilibili.com/video/BV18V411M7Px)   |                                                              |
 | [数据库同步接口和全局异常处理器](https://www.bilibili.com/video/BV1Du4y1Z7Re)               |                                                              |
 | [操作数据库的异步接口](https://www.bilibili.com/video/BV1ku411a7EX)                         |                                                              |
