@@ -35,8 +35,8 @@ class blog : public drogon::HttpController<blog>
                Get);  // path is /api/blog/list/{category_id}
     // 更合适的请求方式为 DELETE，但为了演示方便，使用 GET
     ADD_METHOD_TO(blog::remove,
-                  "/api/blog/remove/{category_id}",
-                  Get);  // path is /api/blog/remove/{category_id}
+                  "/api/blog/remove/{blog_id}",
+                  Get);  // path is /api/blog/remove/{blog_id}
     METHOD_LIST_END
 
     void list(const HttpRequestPtr &req,

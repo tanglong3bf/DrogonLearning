@@ -54,4 +54,4 @@ callback(r);
 
 坑二：对于敏感操作，我们可以通过 `Filter` 来检查用户是否登录，同时检查用户的权限。相关内容在后期的 Filter的使用和案例 视频中有展开讲解。
 
-坑三：请求路径的骚操作，就是下一期视频 HttpController与自定义类型参数的接收 中 正则对请求参数进行限制 的内容。
+坑三：请求路径的骚操作，就是下一期视频 [HttpController与自定义类型参数的接收](../RegexPathAndFromRequest/README.md) 中的内容。
