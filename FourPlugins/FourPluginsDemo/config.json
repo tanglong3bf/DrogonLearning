@@ -117,7 +117,15 @@
                 "rejection_message": "<h1>Too many requests</h1>",
                 // In seconds, the minimum expiration time of the limiters for different
                 // IPs or users. the default value is 600.
-                "limiter_expire_time": 600
+                "limiter_expire_time": 600,
+                // "sub_limits": [
+                // {
+                //         "urls": ["^/user/info$"],
+                //         "capacity": 10,
+                //         "ip_capacity": 0,
+                //         "user_capacity": 0,
+                //     }
+                // ],
                 // Trusted proxy ip or cidr
                 // "trust_ips": ["127.0.0.1", "172.16.0.0/12"],
             }
@@ -144,12 +152,12 @@
             "name": "drogon::plugin::Redirector"
         },
         // {
-            // "name": "drogon::plugin::SecureSSLRedirector",
-            // "dependencies": ["drogon::plugin::Redirector"],
-            // "config": {
-                // "ssl_redirect_exempt": [],
-                // "secure_ssl_host": "localhost:8849"
-            // }
+        //     "name": "drogon::plugin::SecureSSLRedirector",
+        //     "dependencies": ["drogon::plugin::Redirector"],
+        //     "config": {
+        //         "ssl_redirect_exempt": [],
+        //         "secure_ssl_host": "localhost:8849"
+        //     }
         // },
         {
             "name": "drogon::plugin::SlashRemover",
