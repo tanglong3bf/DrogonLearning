@@ -1,0 +1,170 @@
+/* This is a JSON format configuration file
+ */
+{
+    "listeners": [
+        {
+            //address: Ip address,0.0.0.0 by default
+            "address": "0.0.0.0",
+            //port: Port number
+            "port": 8000,
+            //https: If true, use https for security,false by default
+            "https": false
+        }
+    ],
+    "app": {
+        //enable_session: False by default
+        "enable_session": true,
+        "session_timeout": 1800,
+        //string value of SameSite attribute of the Set-Cookie HTTP response header
+        //valid value is either 'Null' (default), 'Lax', 'Strict' or 'None'
+        "session_same_site" : "Null",
+        //session_cookie_key: The cookie key of the session, "JSESSIONID" by default
+        "session_cookie_key": "JSESSIONID",
+        //session_max_age: The max age of the session cookie, -1 by default
+        "session_max_age": 1800,
+    },
+    //plugins: Define all plugins running in the application
+    "plugins": [
+        {
+            "name": "drogon::plugin::PromExporter",
+            "dependencies": [],
+            "config": {
+                // The path of the metrics. the default value is "/metrics".
+                "path": "/metrics",
+                // The list of collectors.
+                "collectors": [
+                    {
+                        // The name of the collector.
+                        "name": "http_requests_total",
+                        // The help message of the collector.
+                        "help": "The total number of http requests",
+                        // The type of the collector. The default value is "counter".
+                        // The other possible value is as following:
+                        // "gauge", "histogram".
+                        "type": "counter",
+                        // The labels of the collector.
+                        "labels": ["url", "method", "code"]
+                    },
+                    {
+                        "name": "http_request_duration_seconds",
+                        "help": "Histogram of latencies for HTTP requests.",
+                        "type": "histogram",
+                        "labels": ["url"]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "drogon::plugin::AccessLogger",
+            "dependencies": ["drogon::plugin::RealIpResolver"],
+            "config": {
+                "use_spdlog": false,
+                "log_path": "",
+                "log_format": "",
+                "log_file": "access.log",
+                "log_size_limit": 1000,
+                "use_local_time": true,
+                "log_index": 0,
+                // "show_microseconds": true,
+                "custom_time_format": "%Y-%m-%d %H:%M:%S",
+                "use_real_ip": true
+            }
+        },
+        {
+            "name": "drogon::plugin::RealIpResolver",
+            "dependencies": [],
+            "config": {
+                // Trusted proxy ip or cidr
+                "trust_ips": ["127.0.0.1"],
+                // Which header to parse ip form. Default is x-forwarded-for
+                "from_header": "x-forwarded-for",
+                // The result will be inserted to HttpRequest attribute map with this
+                // key. Default is "real-ip"
+                "attribute_key": "real-ip"
+            }
+        },
+        {
+            "name": "drogon::plugin::Hodor",
+            "dependencies": [],
+            "config": {
+                // The algorithm used to limit the number of requests.
+                // The default value is "token_bucket". other values are "fixed_window"
+                // or "sliding_window".
+                "algorithm": "token_bucket",
+                // a regular expression (for matching the path of a request) list for
+                // URLs that have to be limited. if the list is empty, all URLs are limited.
+                "urls": ["^/user/.*"],
+                // The time unit in seconds. the default value is 60.
+                "time_unit": 60,
+                // The maximum number of requests in a time unit. the default value 0
+                // means no limit.
+                "capacity": 0,
+                // The maximum number of requests in a time unit for a single IP. the
+                // default value 0 means no limit.
+                "ip_capacity": 0,
+                // The maximum number of requests in a time unit for a single user.
+                // a function must be provided to the plugin to get the user id from the request.
+                // the default value 0 means no limit.
+                "user_capacity": 0,
+                // Use the RealIpResolver plugin to get the real IP address of the
+                // request. if this option is true, the RealIpResolver plugin should be added to
+                // the dependencies list. the default value is false.
+                "use_real_ip_resolver": false,
+                // Multiple threads mode: the default value is true. if this option is
+                // true, some mutexes are used for thread-safe.
+                "multi_threads": true,
+                // The message body of the response when the request is rejected.
+                "rejection_message": "<h1>Too many requests</h1>",
+                // In seconds, the minimum expiration time of the limiters for different
+                // IPs or users. the default value is 600.
+                "limiter_expire_time": 600
+                // Trusted proxy ip or cidr
+                // "trust_ips": ["127.0.0.1", "172.16.0.0/12"],
+            }
+        },
+        {
+            "name": "drogon::plugin::GlobalFilters",
+            "dependencies": [],
+            "config": {
+                // filters: the list of global filter names.
+                "filters": [
+                    "LoginCheckFilter"
+                ],
+                // exempt: exempt must be a string or string array, regular
+                // expressions for
+                // URLs that don't have to be filtered.
+                "exempt": [
+                    "^/static/.*\\.css",
+                    "^/images/.*",
+                    "^/user/login$"
+                ]
+            }
+        },
+        {
+            "name": "drogon::plugin::Redirector"
+        },
+        // {
+            // "name": "drogon::plugin::SecureSSLRedirector",
+            // "dependencies": ["drogon::plugin::Redirector"],
+            // "config": {
+                // "ssl_redirect_exempt": [],
+                // "secure_ssl_host": "localhost:8849"
+            // }
+        // },
+        {
+            "name": "drogon::plugin::SlashRemover",
+            "dependencies": ["drogon::plugin::Redirector"],
+            "config": {
+                // If true, it removes all trailing slashes, e.g.
+                ///home// -> ///home
+                "remove_trailing_slashes": true,
+                // If true, it removes all duplicate slashes, e.g.
+                ///home// -> /home/
+                "remove_duplicate_slashes": true,
+                // If true, redirects the request, otherwise forwards
+                // internally.
+                "redirect": true
+            }
+        }
+    ]
+}
